@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!--this is the live script for bootstrap <-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <h1><%= title %></h1>
+      <table class="table">
+         <thead>
+          <tr>
+            <th>Name</th>
+            <th>email</th>
+            <th>Emp Type</th>
+            <th>Hourly rate</th>
+            <th>Total Amount</th>
+            
+          </tr>
+         </thead>
+         <% records.forEach(function(record) { %>
+         <tr>
+        <!---- here we will display the data from the database as data will be in array format<-->
+          
+            <td><%= record.name %></td>
+            <td><%= record.email %></td>
+            <td><%= record.type %></td>
+            <td><%= record.hourly_rate %></td>
+            <td><%= record.total_hrs %></td>
+         </tr>
+         <% }) %>
+      </table>
+    <!--we will create  form here for insert data here and dispaying it on page-->
+    <h2 style="color: white;">Employee Details</h2>
+    <form action="/" method="POST">
+      <div class="form-group">
+      <label for="name" style="color: white;">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+      <label for="email" style="color: white;">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+      <label for="type" style="color: white;">Employee Type:</label>
+      <input type="text" class="form-control" id="type" name="type" required>
+      </div>
+      <div class="form-group">
+      <label for="hourly_rate" style="color: white;">Hourly Rate:</label>
+      <input type="number" class="form-control" id="hourly_rate" name="hourly_rate" required>
+      </div>
+      <div class="form-group">
+      <label for="total_hrs" style="color: white;">Total Hours:</label>
+      <input type="number" class="form-control" id="total_hrs" name="total_hrs" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </body>
+    <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    .form-control {
+      background-color: #333;
+      color: white;
+      border: 1px solid #555;
+    }
+    .form-control:focus {
+      background-color: #444;
+      color: white;
+    }
+    .btn-primary {
+      background-color: #0066cc;
+      border-color: #005cbf;
+    }
+    .btn-primary:hover {
+      background-color: #005cbf;
+      border-color: #004085;
+    }
+    </style>
+  </html>
